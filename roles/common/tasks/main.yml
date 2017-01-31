@@ -19,3 +19,24 @@
   yum:
     name=git
     state=present
+- name: set git vars
+  include_vars: keys.yml
+- name: copy netrc file
+  template:
+    src=netrc
+    dest=/home/vagrant/.netrc
+- name: add fish ppa
+  yum_repository:
+    name: fish
+    description: Fish repo
+    gpgcheck: 1
+    gpgkey: http://download.opensuse.org/repositories/shells:/fish:/release:/2/RedHat_RHEL-6/repodata/repomd.xml.key
+    baseurl: "http://download.opensuse.org/repositories/shells:/fish:/release:/2/RedHat_RHEL-6/"
+    state: present
+- name: install fish
+  yum:
+    name="fish"
+    state=present
+    disable_gpg_check=yes
+- name: make fish as default shell
+  command: chsh -s /usr/bin/fish vagrant

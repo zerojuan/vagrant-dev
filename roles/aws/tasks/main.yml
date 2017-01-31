@@ -1,0 +1,23 @@
+---
+- name: install aws-cli
+  pip: name=awscli state=latest
+  sudo: yes
+
+- name: create .aws dir under user home
+  file:
+    path={{ awscli_user_home }}/.aws
+    state=directory
+    owner={{ awscli_user }}
+    group={{ awscli_group }}
+    mode=0755
+
+- name: load secrets
+  include_vars: keys.yml
+
+- name: copy awscli config to vm using templates
+  template:
+    src=awscli_config.j2
+    dest={{ awscli_user_home }}/.aws/config
+    owner={{ awscli_user }}
+    group={{ awscli_group }}
+    mode=0644

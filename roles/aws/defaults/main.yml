@@ -1,0 +1,10 @@
+---
+
+# defaults file for awscli
+
+awscli_user: vagrant
+awscli_group: vagrant
+awscli_user_home: /home/vagrant
+
+# default region
+awscli_region: ap-southeast-2

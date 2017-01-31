@@ -1,0 +1,21 @@
+---
+- name: Add EPEL repo
+  yum:
+    name: epel-release
+    state: present
+- name: install curl
+  yum:
+    name=curl
+    state=present
+- name: install pip
+  yum:
+    name="python-pip"
+    state=present
+- name: install python libs
+  yum:
+    name="libselinux-python"
+    state=present
+- name: install git
+  yum:
+    name=git
+    state=present

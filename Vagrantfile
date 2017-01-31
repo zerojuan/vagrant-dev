@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "centos/6"
 
   # Application
   config.vm.network "forwarded_port", guest: 3000, host: 3000
@@ -20,7 +20,7 @@ Vagrant.configure(2) do |config|
   # Sync apps folder as your workspace
   config.vm.synced_folder "apps/", "/vagrant"
 
-  config.vm.define "site" do |site|
+  config.vm.define "devenv" do |site|
       site.vm.provision :ansible do |ansible|
           ansible.playbook = "dev.playbook.yml"
       end

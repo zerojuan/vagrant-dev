@@ -1,0 +1,12 @@
+---
+- name: download nvm
+  get_url:
+    url: "https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh"
+    dest: "/tmp/nvm-installer.sh"
+    mode: "a+x"
+    owner: "vagrant"
+- name: bootstrap nvm
+  shell: "/tmp/nvm-installer.sh"
+  become: yes
+  become_user: vagrant
+  register: nvm

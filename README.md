@@ -15,3 +15,5 @@
 - disable `firewalld` for port-forwarding to work
   - `systemctl stop firewalld` - to stop the service
   - `systemctl disable firewalld` - so it won't restart when you do Vagrant up
+
+- install `fisher` and install `nvm`, so you can run nvm in fish

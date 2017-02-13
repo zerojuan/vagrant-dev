@@ -17,6 +17,9 @@ Vagrant.configure(2) do |config|
   # Postgres
   config.vm.network "forwarded_port", guest: 5432, host: 15432
 
+  # DynamoDB local
+  config.vm.network "forwarded_port", guest: 8000, host: 18000
+
   # Node Debugger
   config.vm.network "forwarded_port", guest: 5858, host: 15858
 

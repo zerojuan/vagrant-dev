@@ -1,0 +1,15 @@
+[user]
+	email = julius@cloud.house
+	name = Julius
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
+[core]
+	editor = /usr/bin/vim
+	excludesfile = /Users/julius-cloud/.gitignore_global
+[alias]
+	s = status -s
+	lg = log --oneline --decorate --all --graph
+[pull]
+	rebase = true

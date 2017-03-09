@@ -29,6 +29,11 @@
   template:
     src=gitconfig
     dest=/home/vagrant/.gitconfig
+- name: stop and disable firewalld
+  service:
+    name: firewalld
+    state: stopped
+    enabled: false
 - name: add fish ppa
   yum_repository:
     name: fish
@@ -59,5 +64,6 @@
   shell: |
     omf install bobthefish
     omf theme bobthefish
+    omf install nvm
   args:
     executable: /usr/bin/fish

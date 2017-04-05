@@ -1,3 +1,5 @@
 apps/*
 !apps/README.md
 .vagrant
+roles/aws/vars/keys.yml
+roles/common/vars/keys.yml
